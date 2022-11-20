@@ -1,19 +1,25 @@
-import { Redirect, Route } from "react-router-dom";
-import TestItem from "./components/test/TestItem";
-import TestList from "./components/test/TestList";
+import { Redirect, Route, Switch } from "react-router-dom";
+import AllQuotes from "./pages/AllQuotes";
+import NewQuote from "./pages/NewQuote";
+import QuoteDetail from "./pages/QuoteDetail";
 
 function App() {
   return (
     <div>
-      <Route path="/test/list">
-        <TestList />
-      </Route>
-      <Route path="/test/item/:id">
-        <TestItem />
-      </Route>
-      <Route path="/" exact>
-        <Redirect to="test/list" />
-      </Route>
+      <Switch>
+        <Route path="/quotes" exact>
+          <AllQuotes />
+        </Route>
+        <Route path="/quotes/:quoteId">
+          <QuoteDetail />
+        </Route>
+        <Route path="/new-quote">
+          <NewQuote />
+        </Route>
+        <Route path="/">
+          <Redirect to='/quotes' />
+        </Route>
+      </Switch>
     </div>
   );
 }
