@@ -17,7 +17,6 @@ const sortQuotes = (quotes, ascending) => {
 const QuoteList = (props) => {
   const history = useHistory();
   const location = useLocation();
-  console.log(location);
 
   const queryParams = new URLSearchParams(location.search);
   const isSortAscending = queryParams.get('sort') === 'asc';
@@ -25,7 +24,7 @@ const QuoteList = (props) => {
   const sortedQuotes = sortQuotes(props.quotes, isSortAscending);
 
   const changeSortingHandler = () =>{
-    history.push('/quotes?sort=' + (isSortAscending? 'desc':'asc'));
+    history.push(location.pathname + '?sort=' + (isSortAscending? 'desc':'asc'));
   }
   return (
     <Fragment>
