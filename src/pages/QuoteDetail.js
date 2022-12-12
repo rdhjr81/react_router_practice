@@ -45,7 +45,7 @@ const QuoteDetail = () => {
         </div>
       </Route>
       <Route path={`${match.path}/comments`}>
-        <Comments></Comments>
+        <Comments quoteId={params.quoteId}></Comments>
       </Route>
     </Fragment>
   );
