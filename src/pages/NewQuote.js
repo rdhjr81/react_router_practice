@@ -13,9 +13,8 @@ const NewQuote = () => {
       history.push('/quotes');
     }
   },[status, history]);
-  
+
   const addQuoteHandler = (quoteData) => {
-    console.log(quoteData);
     sendRequest(quoteData);
   };
   return <QuoteForm onAddQuote={addQuoteHandler} isLoading={status === 'pending'}/>;
